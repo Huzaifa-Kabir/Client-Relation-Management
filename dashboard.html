@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cases Dashboard — Housing Disrepair CRM</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Housing Disrepair CRM</h1>
+  <button id="logoutBtn" class="btn-secondary">Log Out</button>
+</header>
+<main class="container">
+  <div class="dashboard-header">
+    <h2>All Cases</h2>
+    <a href="case-form.html" class="btn-primary">+ Create New Case</a>
+  </div>
+
+  <p class="storage-note">Cases and photos are stored locally in this browser (IndexedDB) — no server involved. Use the same browser/device to see them again later.</p>
+
+  <div id="casesTableWrap">
+    <table class="cases-table">
+      <thead>
+        <tr>
+          <th>Case ID</th>
+          <th>Client Name</th>
+          <th>Date Created</th>
+          <th>Last Updated</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="casesTbody"></tbody>
+    </table>
+    <p id="emptyMsg" style="display:none;" class="empty-msg">No cases yet. Click "Create New Case" to get started.</p>
+  </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

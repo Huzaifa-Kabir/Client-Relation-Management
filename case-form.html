@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Create Case — Housing Disrepair CRM</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1 id="headerTitle">Create New Case</h1>
+  <a href="dashboard.html" class="btn-secondary" style="text-decoration:none;">Back to Dashboard</a>
+</header>
+
+<main class="container">
+  <form id="caseForm">
+
+    <!-- SECTION A: CLIENT DETAILS -->
+    <section class="form-card">
+      <h3>Section A — Client Details</h3>
+
+      <div class="field" style="max-width:320px; margin-bottom:16px;">
+        <label>Tenancy Occupancy</label>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="tenancyOccupancy" value="Single Tenant" checked> Single Tenant</label>
+          <label class="radio-option"><input type="radio" name="tenancyOccupancy" value="Joint Tenant"> Joint Tenant</label>
+        </div>
+      </div>
+
+      <div class="subsection-title">Client 1</div>
+      <div id="client1Fields" class="form-grid"></div>
+
+      <div id="client2Section" class="client2-section" style="display:none;">
+        <div class="subsection-title">Client 2 (Joint Tenant)</div>
+        <div id="client2Fields" class="form-grid"></div>
+      </div>
+    </section>
+
+    <!-- SECTION B: QUANTUM QUESTIONS -->
+    <section class="form-card">
+      <h3>Section B — Quantum Questions (Disrepair Details)</h3>
+      <div class="field" style="margin-bottom:16px;">
+        <label>Issue Types</label>
+        <div class="checkbox-group" id="issueTypesGroup">
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Damp"> Damp</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Mould"> Mould</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Leak"> Leak</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Plumbing Issue"> Plumbing Issue</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Infestation Issue"> Infestation Issue</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Guttering Issue"> Guttering Issue</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Structural Issues"> Structural Issues</label>
+          <label class="checkbox-option"><input type="checkbox" name="issueTypes" value="Others"> Others</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="disrepairDescription">Disrepair Description</label>
+        <textarea id="disrepairDescription" rows="5"></textarea>
+      </div>
+    </section>
+
+    <!-- SECTION C: QUALIFYING QUESTIONS -->
+    <section class="form-card">
+      <h3>Section C — Qualifying Questions</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label for="q_reportedToLandlord">Have you reported the issue to the landlord?</label>
+          <select id="q_reportedToLandlord">
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div></div>
+        <div class="field">
+          <label for="q_firstReportedDate">When did you report the issue for the first time?</label>
+          <input type="date" id="q_firstReportedDate">
+        </div>
+        <div class="field">
+          <label for="q_lastReportedDate">When did you report the issue for the last time?</label>
+          <input type="date" id="q_lastReportedDate">
+        </div>
+        <div class="field">
+          <label for="q_monthlyRent">How much is your monthly rent? (£)</label>
+          <input type="number" step="0.01" min="0" id="q_monthlyRent">
+        </div>
+        <div></div>
+        <div class="field">
+          <label for="q_rentArrears">Do you have rent arrears?</label>
+          <select id="q_rentArrears">
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="field" id="rentArrearsAmountField" style="display:none;">
+          <label for="q_rentArrearsAmount">Enter Rent Arrears Amount (£)</label>
+          <input type="number" step="0.01" min="0" id="q_rentArrearsAmount">
+        </div>
+        <div class="field">
+          <label for="q_paymentPlan">Do you have a payment plan?</label>
+          <select id="q_paymentPlan">
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div class="field" id="paymentPlanDetailsField" style="display:none;">
+          <label for="q_paymentPlanDetails">Enter Payment Plan Details</label>
+          <input type="text" id="q_paymentPlanDetails">
+        </div>
+        <div class="field">
+          <label for="q_claimedBefore">Have you ever claimed against your landlord before?</label>
+          <select id="q_claimedBefore">
+            <option value="">-- Select --</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION D: TENANCY & PROPERTY DETAILS -->
+    <section class="form-card">
+      <h3>Section D — Tenancy & Property Details</h3>
+      <div class="form-grid">
+        <div class="field" style="grid-column: 1 / -1;">
+          <label for="p_address">Property Address</label>
+          <textarea id="p_address" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label for="p_moveInDate">When did you move in?</label>
+          <input type="date" id="p_moveInDate">
+        </div>
+        <div class="field">
+          <label for="p_landlordName">Landlord Name</label>
+          <input type="text" id="p_landlordName">
+        </div>
+        <div class="field">
+          <label for="p_tenancyType">Tenancy Type</label>
+          <select id="p_tenancyType">
+            <option value="">-- Select --</option>
+            <option value="Permanent">Permanent</option>
+            <option value="Temporary">Temporary</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="p_country">Do you live in England or Wales?</label>
+          <select id="p_country">
+            <option value="">-- Select --</option>
+            <option value="England">England</option>
+            <option value="Wales">Wales</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION E: INSPECTION & ROOM REPORT -->
+    <section class="form-card">
+      <h3>Section E — Inspection & Room Report</h3>
+      <div id="roomsContainer"></div>
+      <button type="button" id="addRoomBtn" class="btn-primary add-room-btn">+ Add Another Room</button>
+    </section>
+
+    <div class="form-actions">
+      <a href="dashboard.html" class="btn-secondary" style="text-decoration:none;">Cancel</a>
+      <button type="submit" class="btn-primary" id="submitBtn">Save Case</button>
+    </div>
+  </form>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/case-form.js"></script>
+</body>
+</html>
